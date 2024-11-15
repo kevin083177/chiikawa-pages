@@ -1,4 +1,4 @@
-import { useNavigate, BrowserRouter as Router, Route} from 'react-router-dom';
+import { useNavigate, BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './App.css';
 
@@ -380,12 +380,14 @@ function App() {
 
   return (
     <Router>
+      <Routes>
         <Route path="/chiikawa/" element={<Home />} />
         <Route path="/chiikawa/characters" element={<Characters />} />
         <Route path="/chiikawa/quiz_information" element={<Quiz_Information />} />
         <Route path="/chiikawa/quiz_question" element={<Quiz_Question score={score} setScore={setScore} />} />
         <Route path="/chiikawa/failed" element={<Failed score={score}/>} />
         <Route path="/chiikawa/pass" element={<Pass score={score}/>} />
+      </Routes>
     </Router>
   );
 }
