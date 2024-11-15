@@ -17,7 +17,7 @@ const Home = () => {
               <div className='col-md-16'>
                 <h1 className='display-1'>吉伊卡哇の小天地</h1>
                 <a className='btn' onClick={scrollToIntro} style={{cursor: 'pointer'}}>了解更多</a>
-                <a className='btn' href='/chiikawa/characters'>認識角色</a>
+                <a className='btn' href='/chiikawa-pages/characters'>認識角色</a>
               </div>
             </div>
           </div>
@@ -56,7 +56,7 @@ const Characters = () => {
           <div className='col-md-4 text-center'>
             <div className='outer'>
               <div className='upper'>
-                <img src='./src/img/Chiikawa.jpg'></img>
+                <img src='./src/img/chiikawa-pages.jpg'></img>
                 <div className='innertext'>
                   <h2>吉伊卡哇</h2>
                 </div>
@@ -211,7 +211,7 @@ const Characters = () => {
           </div>
         </div>
         <a className='btn' href='/'>回首頁</a>
-        <a className='btn' href='/chiikawa/quiz_information'>進行測驗</a>
+        <a className='btn' href='/chiikawa-pages/quiz_information'>進行測驗</a>
       </div>
     </section>
   );
@@ -222,7 +222,7 @@ const Quiz_Information = () => {
   const navigate = useNavigate();
   function btn_question(){
     if(checked)
-      navigate('/chiikawa/quiz_question');
+      navigate('/chiikawa-pages/quiz_question');
     else
       alert("請先閱讀須知並勾選按鈕");
   }
@@ -311,9 +311,9 @@ const Quiz_Question = ({score, setScore}) => {
 
       setScore(newScore);
       if(newScore < 60)
-        navigate('/chiikawa/failed');
+        navigate('/chiikawa-pages/failed');
       else
-        navigate('/chiikawa/pass');
+        navigate('/chiikawa-pages/pass');
 
     };
   return (
@@ -332,7 +332,7 @@ const Quiz_Question = ({score, setScore}) => {
             </div>
           ))}
           <a className='btn' onClick={calculateScore}>送出</a>
-          <a className='btn' href='/chiikawa/quiz_question'>重置選項</a>
+          <a className='btn' href='/chiikawa-pages/quiz_question'>重置選項</a>
         </div>
       </form>
     </section>
@@ -347,7 +347,7 @@ const Pass = ({score}) => {
           <h2>您的得分為: {score}分</h2>
           <h3>嗚~~~~拉</h3>
           <div className='btn-container'>
-            <a className='btn' href='/chiikawa/quiz_question'>再來一次</a>
+            <a className='btn' href='/chiikawa-pages/quiz_question'>再來一次</a>
             <a className='btn' href='/'>回到主頁</a>
           </div>
         </div>
@@ -364,7 +364,7 @@ const Failed = ({score}) => {
           <h2>您的得分為: {score}分</h2>
           <h3>哥布林大軍朝你襲來</h3>
           <div className='btn-container'>
-            <a className='btn' href='/chiikawa/quiz_question'>再來一次</a>
+            <a className='btn' href='/chiikawa-pages/quiz_question'>再來一次</a>
             <a className='btn' href='/'>回到主頁</a>
           </div>
         </div>
@@ -381,12 +381,12 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/chiikawa/" element={<Home />} />
-        <Route path="/chiikawa/characters" element={<Characters />} />
-        <Route path="/chiikawa/quiz_information" element={<Quiz_Information />} />
-        <Route path="/chiikawa/quiz_question" element={<Quiz_Question score={score} setScore={setScore} />} />
-        <Route path="/chiikawa/failed" element={<Failed score={score}/>} />
-        <Route path="/chiikawa/pass" element={<Pass score={score}/>} />
+        <Route path="/chiikawa-pages/" element={<Home />} />
+        <Route path="/chiikawa-pages/characters" element={<Characters />} />
+        <Route path="/chiikawa-pages/quiz_information" element={<Quiz_Information />} />
+        <Route path="/chiikawa-pages/quiz_question" element={<Quiz_Question score={score} setScore={setScore} />} />
+        <Route path="/chiikawa-pages/failed" element={<Failed score={score}/>} />
+        <Route path="/chiikawa-pages/pass" element={<Pass score={score}/>} />
       </Routes>
     </Router>
   );
